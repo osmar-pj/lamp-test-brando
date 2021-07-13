@@ -9,13 +9,13 @@ export const getMqtt = async (req, res) => {
             username: 'controllerMqtt',
             password: ''
           }
-          const connectUrl = 'ws://143.198.128.180:8083/mqtt'
+          const connectUrl = ''
           const client = mqtt.connect(connectUrl, options)
           client.on('connect', () => {
             console.log('Client connected by API:')
             // Subscribe
           })
-          client.publish('mina/subterranea/worker/alarm', led.toString())
+          client.publish('', led.toString())
           
         return res.json(led)
     } catch (error) {

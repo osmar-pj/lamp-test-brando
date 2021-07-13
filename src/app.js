@@ -57,12 +57,12 @@ const options = {
   password: ''
 }
 
-const connectUrl = 'ws://143.198.128.180:8083/mqtt'
+const connectUrl = ''
 const client = mqtt.connect(connectUrl, options)
 client.on('connect', () => {
   console.log('Client connected by APP:')
   // Subscribe
-  client.subscribe('mina/subterranea/worker/#', { qos: 0 })
+  client.subscribe('', { qos: 0 })
 })
 
 client.on('message', async (topic, message) => {
@@ -80,6 +80,8 @@ client.on('message', async (topic, message) => {
   } else if (data.t) {
   }
 })
+const letter = false
+client.publish('', letter.toString())
 
 server.listen(4000, () => {
   console.log('server is ok')
